@@ -855,7 +855,7 @@ The command block is indicated by the >>> symbol."
                      ;; ensure that there is a newline at the end of buffer
                      (when (eq (point) (point-max)) (newline))
                      (point-marker))))
-    (while (looking-at "[ \t]*--") (forward-line -1))
+    (while (and (looking-at "[ \t]*--") (forward-line -1)))
     (forward-line)
     (lcr-spawn
       (lcr-call dante-async-load-current-buffer t nil)
